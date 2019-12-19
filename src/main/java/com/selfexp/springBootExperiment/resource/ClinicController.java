@@ -20,7 +20,7 @@ public class ClinicController {
         return clinicService.getAll();
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public SaveClinicResponseDto save(@RequestBody SaveClinicRequestDto requestDto) {
         return clinicService.save(requestDto);
     }

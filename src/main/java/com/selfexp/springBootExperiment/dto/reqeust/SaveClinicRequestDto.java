@@ -7,4 +7,5 @@ public class SaveClinicRequestDto {
     private String name;
     private String city;
     private String streetAddress;
+
 }

@@ -27,11 +27,11 @@ public class ClinicServiceImpl implements ClinicService {
 
     @Override
     public SaveClinicResponseDto save(SaveClinicRequestDto requestDto) {
-//        Clinic clinic = ClinicMapper.INSTANCE.saveResponseToEntity(requestDto);
-        //TODO need to convert dto to entity
-        //TODO save to db
-        //TODO convert entity to dto
-        //TODO return responseDto
-        return null;
+        SaveClinicResponseDto responseDto = new SaveClinicResponseDto();
+        Clinic clinic = clinicMapper.saveClinicRequestDtoToClinic(requestDto);
+        clinic = clinicRepository.save(clinic);
+        clinicMapper.clinicToSaveClinicResponseDto(responseDto, clinic);
+        responseDto.setStatus(true);
+        return responseDto;
     }
 }
